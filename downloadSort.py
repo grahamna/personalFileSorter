@@ -49,7 +49,7 @@ class OnMyWatch:
 class Handler(LoggingEventHandler):
     @staticmethod
     def on_any_event(event):
-        if event.is_directory:
+        if event.is_directory or event.src_path == sourceDir+"\\script.sh" or event.src_path == sourceDir+"\\downloadSort.py":
             return None
         elif event.event_type == 'created':
             print("Watchdog received created event - % s." % event.src_path)

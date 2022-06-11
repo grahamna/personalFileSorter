@@ -9,6 +9,11 @@ destMusic = "C:\\Users\\natea\\Music"
 destImg = "C:\\Users\\natea\\OneDrive\\Pictures\\temp"
 destPDF = "C:\\Users\\natea\\OneDrive\\Textbooks\\temp"
 
+def main():
+    watch = OnMyWatch()
+    watch.run()
+
+
 # a static method to move files to their respective folders based on their file extension type 
 class moverHandler():
     def __init__(self, src_path):
@@ -44,8 +49,7 @@ class OnMyWatch:
             self.observer.stop()
             print("Observer Stopped")
         self.observer.join()
-  
-  
+
 class Handler(LoggingEventHandler):
     @staticmethod
     def on_any_event(event):
@@ -57,8 +61,6 @@ class Handler(LoggingEventHandler):
         elif event.event_type == 'modified':
             print("Watchdog received modified event - % s." % event.src_path)
             
-              
-  
+
 if __name__ == '__main__':
-    watch = OnMyWatch()
-    watch.run()
+    main()
